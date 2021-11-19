@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch) => ({
 CurrencyOptions.propTypes = {
   dispatchCurrency: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
+  currencies: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrencyOptions);

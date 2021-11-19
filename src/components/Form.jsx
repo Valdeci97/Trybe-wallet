@@ -37,6 +37,9 @@ class Form extends React.Component {
       exchangeRates,
     });
     dispatchExpenses(this.state);
+    this.setState({
+      value: 0,
+    });
   }
 
   render() {
