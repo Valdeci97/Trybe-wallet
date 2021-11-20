@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Form from '../components/Form';
+import Table from '../components/Table';
 
 class Wallet extends React.Component {
   constructor(props) {
@@ -13,18 +14,11 @@ class Wallet extends React.Component {
 
   chargeAmount() {
     const { expenses } = this.props;
-    // const total = expenses.reduce((acc, curr) => {
-    //   const { currency, value, exchangeRates } = curr;
-    //   const convertion = parseFloat(exchangeRates[currency].ask * value);
-    //   return acc + convertion;
-    // }, 0);
-    // return total.toFixed(2);
     const total = expenses.reduce((acc, curr) => {
       const { currency, exchangeRates, value } = curr;
       const convertion = Number(exchangeRates[currency].ask * value);
       return acc + convertion;
     }, 0);
-    // console.log(expenses);
     return total.toFixed(2);
   }
 
@@ -46,6 +40,7 @@ class Wallet extends React.Component {
           </span>
         </header>
         <Form />
+        <Table />
       </div>
     );
   }
