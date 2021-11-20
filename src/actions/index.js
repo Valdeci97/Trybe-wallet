@@ -4,6 +4,7 @@ import currencyApi from '../extrafunction/currencyApi';
 export const SAVE_EMAIL = 'SAVE_EMAIL';
 export const GET_CURRENCY_DATA = 'GET_CURRENCY_DATA';
 export const ADD_CHARGE = 'ADD_CHARGE';
+export const REMOVE_CHARGE = 'REMOVE_CHARGE';
 
 export const saveEmailAction = (payload) => ({
   type: SAVE_EMAIL,
@@ -17,6 +18,11 @@ export const getCurrencyAction = (payload) => ({
 
 export const addChargeAction = (payload) => ({
   type: ADD_CHARGE,
+  payload,
+});
+
+export const removeChargeAction = (payload) => ({
+  type: REMOVE_CHARGE,
   payload,
 });
 
