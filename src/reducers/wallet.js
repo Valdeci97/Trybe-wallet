@@ -24,7 +24,8 @@ const wallet = (state = INITIAL_STATE, action) => {
   case REMOVE_CHARGE:
     return {
       ...state,
-      expenses: state.expenses.filter((expense) => expense.id !== Number(action.payload)),
+      expenses: state.expenses
+        .filter((expense) => expense.description !== (action.payload)),
     };
   default:
     return state;

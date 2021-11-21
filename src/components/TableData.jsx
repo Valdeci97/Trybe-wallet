@@ -29,7 +29,7 @@ class TableData extends React.Component {
               <button
                 type="button"
                 data-testid="delete-btn"
-                onClick={ () => removeExpenses(expense.id) }
+                onClick={ () => removeExpenses(expense.description) }
               >
                 Excluir
               </button>

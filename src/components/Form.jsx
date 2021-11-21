@@ -39,6 +39,10 @@ class Form extends React.Component {
     dispatchExpenses(this.state);
     this.setState({
       value: 0,
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+      description: '',
     });
   }
 

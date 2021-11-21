@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { saveEmailAction } from '../actions';
 
+import './login.css';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -46,36 +48,38 @@ class Login extends React.Component {
   render() {
     const { email, password, isDisabled } = this.state;
     return (
-      <div>
-        <label htmlFor="email">
-          Email: &nbsp;
-          <input
-            data-testid="email-input"
-            type="email"
-            id="email"
-            placeholder="trybewallet@react-redux.com"
-            onChange={ this.handleChange }
-            value={ email }
-          />
-        </label>
-        <label htmlFor="password">
-          Senha: &nbsp;
-          <input
-            data-testid="password-input"
-            type="password"
-            id="password"
-            placeholder="password"
-            value={ password }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <button
-          type="button"
-          disabled={ isDisabled }
-          onClick={ this.onClickRedirect }
-        >
-          Entrar
-        </button>
+      <div className="login-container">
+        <form className="login-form">
+          <label htmlFor="email">
+            Email: &nbsp;&nbsp;
+            <input
+              data-testid="email-input"
+              type="email"
+              id="email"
+              placeholder="trybewallet@react-redux.com"
+              onChange={ this.handleChange }
+              value={ email }
+            />
+          </label>
+          <label htmlFor="password">
+            Senha: &nbsp;
+            <input
+              data-testid="password-input"
+              type="password"
+              id="password"
+              placeholder="password"
+              value={ password }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <button
+            type="button"
+            disabled={ isDisabled }
+            onClick={ this.onClickRedirect }
+          >
+            Entrar
+          </button>
+        </form>
       </div>
     );
   }
