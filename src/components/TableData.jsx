@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { removeChargeAction } from '../actions';
+import { removeChargeAction, changingInfoAction } from '../actions';
 
 class TableData extends React.Component {
   render() {
-    const { expenses, removeExpenses } = this.props;
+    const { expenses, removeExpenses, startEdition } = this.props;
     return (
       <table>
         {expenses.map((expense) => (
@@ -25,6 +25,15 @@ class TableData extends React.Component {
                 .toFixed(2)}
             </td>
             <td>Real</td>
+            <td>
+              <button
+                type="button"
+                data-testid="edit-btn"
+                onClick={ () => startEdition(expense.description) }
+              >
+                Editar
+              </button>
+            </td>
             <td>
               <button
                 type="button"
@@ -47,11 +56,13 @@ const mapStateToProps = ({ wallet }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   removeExpenses: (payload) => dispatch(removeChargeAction(payload)),
+  startEdition: (payload) => dispatch(changingInfoAction(payload)),
 });
 
 TableData.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
   removeExpenses: PropTypes.func.isRequired,
+  startEdition: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TableData);

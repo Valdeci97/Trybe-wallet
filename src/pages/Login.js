@@ -76,6 +76,7 @@ class Login extends React.Component {
             type="button"
             disabled={ isDisabled }
             onClick={ this.onClickRedirect }
+            className={ isDisabled ? 'login-btn-1' : 'login-btn-2' }
           >
             Entrar
           </button>

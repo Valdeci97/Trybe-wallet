@@ -1,10 +1,23 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
-import { GET_CURRENCY_DATA, ADD_CHARGE, REMOVE_CHARGE } from '../actions';
+import {
+  GET_CURRENCY_DATA,
+  ADD_CHARGE,
+  REMOVE_CHARGE,
+  CHANGING_INFO,
+  CHANGED_INFO,
+} from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
+  editingExpense: false,
+  expenseToEdit: {},
 };
+
+// const SIXTEEN = 16;
+// const NINE = 9;
+
+// const idGenerator = () => Math.random().toString(SIXTEEN).substring(2, NINE);
 
 const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -26,6 +39,20 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       expenses: state.expenses
         .filter((expense) => expense.description !== (action.payload)),
+    };
+  case CHANGING_INFO:
+    return {
+      ...state,
+      editingExpense: true,
+      expenseToEdit: { ...state.expenses
+        .filter((expense) => expense.description === action.payload) },
+    };
+  case CHANGED_INFO:
+    return {
+      ...state,
+      editingExpense: false,
+      espenses: state.expenses
+        .filter((expense) => expense.description === action.payload),
     };
   default:
     return state;

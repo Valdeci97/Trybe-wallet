@@ -2,27 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { addChargeAction } from '../actions';
-import currencyApi from '../extrafunction/currencyApi';
 import CurrencyOptions from './CurrencyOptions';
-import EditForm from './EditForm';
 
-class Form extends React.Component {
+class EditForm extends React.Component {
   constructor(props) {
     super(props);
 
+    const { expenseToEdit } = this.props;
+
     this.state = {
-      value: 0,
-      currency: 'USD',
-      method: 'Dinheiro',
-      tag: 'Alimentação',
-      description: '',
-      exchangeRates: {},
+      value: expenseToEdit[0].value,
+      currency: expenseToEdit[0].currency,
+      method: expenseToEdit[0].method,
+      tag: expenseToEdit[0].tag,
+      description: expenseToEdit[0].description,
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.addExpenseClick = this.addExpenseClick.bind(this);
-    this.formRender = this.formRender.bind(this);
+    // this.initialState = this.initialState.bind(this);
   }
 
   handleChange({ target }) {
@@ -32,8 +29,11 @@ class Form extends React.Component {
     });
   }
 
-  formRender() {
-    const { value, description, method, tag, currency } = this.state;
+  render() {
+    const { value, tag, method, description, currency } = this.state;
+    const { expenseToEdit } = this.props;
+    console.log(expenseToEdit[0].value);
+
     return (
       <>
         <label htmlFor="value" onChange={ this.handleChange }>
@@ -73,48 +73,24 @@ class Form extends React.Component {
             <option>Transporte</option>
           </select>
         </label>
-        <button type="button" onClick={ this.addExpenseClick }>Adicionar Despesa</button>
+        <button type="button" onClick={ this.addExpenseClick }>finalizar edição</button>
       </>
-    );
-  }
-
-  async addExpenseClick() {
-    const { dispatchExpenses } = this.props;
-    const exchangeRates = await currencyApi();
-    this.setState({
-      exchangeRates,
-    });
-    dispatchExpenses(this.state);
-    this.setState({
-      value: 0,
-      currency: 'USD',
-      method: 'Dinheiro',
-      tag: 'Alimentação',
-      description: '',
-    });
-  }
-
-  render() {
-    const { editingExpense } = this.props;
-    return (
-      <form>
-        { editingExpense ? <EditForm /> : this.formRender() }
-      </form>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  editingExpense: state.wallet.editingExpense,
+  expenseToEdit: state.wallet.expenseToEdit,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  dispatchExpenses: (payload) => dispatch(addChargeAction(payload)),
-});
-
-Form.propTypes = {
-  dispatchExpenses: PropTypes.func.isRequired,
-  editingExpense: PropTypes.bool.isRequired,
+EditForm.propTypes = {
+  expenseToEdit: PropTypes.shape({
+    value: PropTypes.string,
+    currency: PropTypes.string,
+    method: PropTypes.string,
+    tag: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(mapStateToProps)(EditForm);
