@@ -5,8 +5,8 @@ import { currencyApiThunk } from '../actions';
 
 class CurrencyOptions extends React.Component {
   componentDidMount() {
-    const { dispatchCurrency } = this.props;
-    dispatchCurrency();
+    const { dispatchCurrency, currencies } = this.props;
+    if (currencies.length === 0) dispatchCurrency();
   }
 
   render() {

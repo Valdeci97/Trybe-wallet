@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import CurrencyOptions from './CurrencyOptions';
+import { changedInfoAction } from '../actions/index';
+import CurrencyEdit from './CurrencyEdit';
 
 class EditForm extends React.Component {
   constructor(props) {
@@ -16,10 +17,11 @@ class EditForm extends React.Component {
       method: expenseToEdit[0].method,
       tag: expenseToEdit[0].tag,
       description: expenseToEdit[0].description,
+      exchangeRates: expenseToEdit[0].exchangeRates,
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.initialState = this.initialState.bind(this);
+    this.editedInfo = this.editedInfo.bind(this);
   }
 
   handleChange({ target }) {
@@ -29,10 +31,14 @@ class EditForm extends React.Component {
     });
   }
 
+  editedInfo() {
+    const { edited } = this.props;
+    edited(this.state);
+  }
+
   render() {
-    const { value, tag, method, description, currency } = this.state;
-    const { expenseToEdit } = this.props;
-    console.log(expenseToEdit[0].value);
+    const { value, tag, method, description, currency, exchangeRates } = this.state;
+    console.log(exchangeRates);
 
     return (
       <>
@@ -54,7 +60,7 @@ class EditForm extends React.Component {
             data-testid="description-input"
           />
         </label>
-        <CurrencyOptions handleChange={ this.handleChange } value={ currency } />
+        <CurrencyEdit handleChange={ this.handleChange } value={ currency } />
         <label htmlFor="method" onChange={ this.handleChange }>
           Método de pagamento: &nbsp;
           <select id="method" value={ method } data-testid="method-input">
@@ -73,7 +79,7 @@ class EditForm extends React.Component {
             <option>Transporte</option>
           </select>
         </label>
-        <button type="button" onClick={ this.addExpenseClick }>finalizar edição</button>
+        <button type="button" onClick={ this.editedInfo }>finalizar edição</button>
       </>
     );
   }
@@ -81,6 +87,10 @@ class EditForm extends React.Component {
 
 const mapStateToProps = (state) => ({
   expenseToEdit: state.wallet.expenseToEdit,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  edited: (payload) => dispatch(changedInfoAction(payload)),
 });
 
 EditForm.propTypes = {
@@ -91,6 +101,7 @@ EditForm.propTypes = {
     tag: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
+  edited: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps)(EditForm);
+export default connect(mapStateToProps, mapDispatchToProps)(EditForm);

@@ -48,11 +48,13 @@ const wallet = (state = INITIAL_STATE, action) => {
         .filter((expense) => expense.description === action.payload) },
     };
   case CHANGED_INFO:
+    console.log(action.payload, state.expenses[0].description);
     return {
       ...state,
       editingExpense: false,
-      espenses: state.expenses
-        .filter((expense) => expense.description === action.payload),
+      expenses: state
+        .expenses.reduce((acc, curr) => (curr.description === action.payload.description
+          ? acc.concat(action.payload) : acc.concat(curr)), []),
     };
   default:
     return state;
