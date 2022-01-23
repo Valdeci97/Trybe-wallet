@@ -1,0 +1,11 @@
+.table-row {
+  display: flex;
+  max-width: 95%;
+  box-sizing: border-box;
+  /* text-align: center; */
+}
+
+.table-row th {
+  box-sizing: border-box;
+  margin: 3% 7%;
+}

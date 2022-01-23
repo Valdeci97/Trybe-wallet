@@ -3,46 +3,69 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { removeChargeAction, changingInfoAction } from '../actions';
+import './table-data.css';
 
 class TableData extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.currencyFormat = this.currencyFormat.bind(this);
+  }
+
+  currencyFormat(name) {
+    if (name.exchangeRates[name.currency]) {
+      const string = name.exchangeRates[name.currency].code;
+      return string;
+    }
+  }
+
   render() {
     const { expenses, removeExpenses, startEdition } = this.props;
     return (
-      <table>
+      <table className="table-container">
         {expenses.map((expense) => (
-          <tr key={ expense.id }>
+          <tr key={ expense.id } className="table-data-row">
             <td>{ expense.description }</td>
             <td>{ expense.tag }</td>
             <td>{ expense.method }</td>
-            <td>{ expense.value }</td>
+            <td>{ Number(expense.value).toLocaleString('pt-BR', { style: 'currency', currency: `${ this.currencyFormat(expense) }` }) }</td>
             <td>{ expense.exchangeRates[expense.currency].name.split('/')[0] }</td>
             <td>
               {Number(expense.exchangeRates[expense.currency].ask)
-                .toFixed(2)}
+                .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
             </td>
             <td>
               {Number(expense.exchangeRates[expense.currency].ask * expense.value)
-                .toFixed(2)}
+                .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
             </td>
-            <td>Real</td>
-            <td>
+            <div className="button-container">
               <button
                 type="button"
                 data-testid="edit-btn"
-                onClick={ () => startEdition(expense.description) }
+                onClick={ () => startEdition(expense.id) }
+                className="edit-btn"
               >
-                Editar
+                <img
+                  src="https://img.icons8.com/glyph-neue/64/000000/edit.png"
+                  alt="lápis"
+                  width="20px"
+                  height="20px"
+                />
               </button>
-            </td>
-            <td>
               <button
                 type="button"
                 data-testid="delete-btn"
-                onClick={ () => removeExpenses(expense.description) }
+                onClick={ () => removeExpenses(expense.id) }
+                className="delete-btn"
               >
-                Excluir
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/delete-sign--v2.png"
+                  alt="letra X"
+                  width="20px"
+                  height="20px"
+                />
               </button>
-            </td>
+            </div>
           </tr>
         ))}
       </table>

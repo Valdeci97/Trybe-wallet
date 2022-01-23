@@ -1,14 +1,19 @@
 import currencyApi from '../extrafunction/currencyApi';
 
 export const SAVE_EMAIL = 'SAVE_EMAIL';
+export const CHANGE_MODE = 'CHANGE_MODE';
 export const GET_CURRENCY_DATA = 'GET_CURRENCY_DATA';
 export const ADD_CHARGE = 'ADD_CHARGE';
 export const REMOVE_CHARGE = 'REMOVE_CHARGE';
 export const CHANGING_INFO = 'CHANGING_INFO';
 export const CHANGED_INFO = 'CHANGED_INFO';
 
-export const saveEmailAction = (payload) => ({
+export const saveEmailAction = () => ({
   type: SAVE_EMAIL,
+});
+
+export const changeModeAction = (payload) => ({
+  type: CHANGE_MODE,
   payload,
 });
 

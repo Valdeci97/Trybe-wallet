@@ -6,13 +6,14 @@ import { addChargeAction } from '../actions';
 import currencyApi from '../extrafunction/currencyApi';
 import CurrencyOptions from './CurrencyOptions';
 import EditForm from './EditForm';
+import './form.css';
 
 class Form extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      value: 0,
+      value: '',
       currency: 'USD',
       method: 'Dinheiro',
       tag: 'Alimentação',
@@ -86,7 +87,7 @@ class Form extends React.Component {
     });
     dispatchExpenses(this.state);
     this.setState({
-      value: 0,
+      value: '',
       currency: 'USD',
       method: 'Dinheiro',
       tag: 'Alimentação',
@@ -97,7 +98,7 @@ class Form extends React.Component {
   render() {
     const { editingExpense } = this.props;
     return (
-      <form>
+      <form className="form-container">
         { editingExpense ? <EditForm /> : this.formRender() }
       </form>
     );

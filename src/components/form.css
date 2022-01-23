@@ -1,0 +1,14 @@
+.form-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+.form-container button{
+  background-color: #29271f;
+  border: #fff solid 2px;
+  border-radius: 15px;
+  color: #fff;
+  height: 25px;
+  transform: translateY(-2px);
+}

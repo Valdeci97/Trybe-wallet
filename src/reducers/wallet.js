@@ -14,10 +14,10 @@ const INITIAL_STATE = {
   expenseToEdit: {},
 };
 
-// const SIXTEEN = 16;
-// const NINE = 9;
+const SIXTEEN = 16;
+const NINE = 9;
 
-// const idGenerator = () => Math.random().toString(SIXTEEN).substring(2, NINE);
+const idGenerator = () => Math.random().toString(SIXTEEN).substring(2, NINE);
 
 const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -30,7 +30,7 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: [...state.expenses, {
-        id: state.expenses.length,
+        id: idGenerator(),
         ...action.payload,
       }],
     };
@@ -38,22 +38,21 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: state.expenses
-        .filter((expense) => expense.description !== (action.payload)),
+        .filter((expense) => expense.id !== (action.payload)),
     };
   case CHANGING_INFO:
     return {
       ...state,
       editingExpense: true,
       expenseToEdit: { ...state.expenses
-        .filter((expense) => expense.description === action.payload) },
+        .filter((expense) => expense.id === action.payload) },
     };
   case CHANGED_INFO:
-    console.log(action.payload, state.expenses[0].description);
     return {
       ...state,
       editingExpense: false,
       expenses: state
-        .expenses.reduce((acc, curr) => (curr.description === action.payload.description
+        .expenses.reduce((acc, curr) => (curr.id === action.payload.id
           ? acc.concat(action.payload) : acc.concat(curr)), []),
     };
   default:

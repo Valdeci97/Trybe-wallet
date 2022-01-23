@@ -21,31 +21,29 @@ class Wallet extends React.Component {
       const convertion = Number(exchangeRates[currency].ask * value);
       return acc + convertion;
     }, 0);
-    return total.toFixed(2);
+    return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
 
   render() {
     const { email } = this.props;
+
     return (
-      <div>
+      <>
         <div>
           <header className="header-container">
             <h3 data-testid="email-field">
               { email }
             </h3>
             <span data-testid="total-field">
-              Despesa total: R$
+              Despesa total:
               {' '}
               { this.chargeAmount() }
-            </span>
-            <span data-testid="header-currency-field">
-              BRL
             </span>
           </header>
         </div>
         <Form />
         <Table />
-      </div>
+      </>
     );
   }
 }

@@ -1,0 +1,31 @@
+.table-container {
+  box-sizing: border-box;
+  display: inline-table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+
+.table-data-row td {
+  box-sizing: border-box;
+  display: inline-table;
+  inline-size: 8px;
+  margin-left: 0.5%;
+  width: 11%;
+  transform: translateY(-5px);
+  text-align: center;
+}
+
+
+.button-container {
+  display: inline-flex;
+}
+
+.edit-btn {
+  margin-right: 5px;
+  margin-left: 50px;
+}
+
+.delete-btn {
+  margin-left: 10px;
+}

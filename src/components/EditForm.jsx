@@ -12,6 +12,7 @@ class EditForm extends React.Component {
     const { expenseToEdit } = this.props;
 
     this.state = {
+      id: expenseToEdit[0].id,
       value: expenseToEdit[0].value,
       currency: expenseToEdit[0].currency,
       method: expenseToEdit[0].method,

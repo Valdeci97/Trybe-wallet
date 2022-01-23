@@ -1,48 +1,57 @@
 :root {
+  --cor1: #eff9f2;
 
-  --cor1: rgba(90, 92, 92, 0.055);
-
-  --cor2: rgba(78, 75, 68, 0.548);
-
-  --cor3: rgba(215, 238, 238, 0.692);
-
-  --cor4: rgb(96, 233, 192);
+  --cor2: #93d7ee;
+  
+  --cor3: #2a38c3;
 }
 
-body {
+body{
   background-color: var(--cor1);
 }
 
+
 .login-container {
-  align-items: center;
-  background-color: var(--cor2);
   display: flex;
-  flex-direction: column;
-  margin-top: 150px;
+  height: 30vh;
+  justify-content: center;
+  position: relative;
+  transform: translate(55%, 30vh);
+  width: 40vw;
 }
 
 .login-form {
-  align-items: flex-end;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .login-form label {
   margin-top: 25px;
+  margin-bottom: 5px;
 }
 
 .login-form button {
-  border: black solid 1px;
-  border-radius: 6px;
-  color: black;
-  margin-top: 8px;
-  width: 240.47px;
+  border: black solid 2px;
+  border-radius: 16px;
+  cursor: pointer;
+  height: 30px;
+  margin-top: 20px;
+  width: 100px;
 }
 
 .login-btn-1 {
-  background-color: var(--cor3);
+  background-color: var(--cor2);
 }
 
 .login-btn-2 {
-  background-color: var(--cor4);
+  background-color: var(--cor3);
+}
+
+.black {
+  color: black;
+}
+
+.white {
+  color: #eee;
 }
