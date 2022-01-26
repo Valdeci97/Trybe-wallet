@@ -36,7 +36,7 @@ CurrencyOptions.propTypes = {
   dispatchCurrency: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   currencies: PropTypes.arrayOf(PropTypes.any).isRequired,
-  currency: PropTypes.string.isRequired,
+  currency: PropTypes.string,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrencyOptions);

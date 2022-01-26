@@ -20,7 +20,7 @@ class TableData extends React.Component {
   }
 
   render() {
-    const { expenses, removeExpenses, startEdition } = this.props;
+    const { expenses, removeExpenses, startEdition, isEditing } = this.props;
     return (
       <table className="table-container">
         {expenses.map((expense) => (
@@ -28,7 +28,14 @@ class TableData extends React.Component {
             <td>{ expense.description }</td>
             <td>{ expense.tag }</td>
             <td>{ expense.method }</td>
-            <td>{ Number(expense.value).toLocaleString('pt-BR', { style: 'currency', currency: `${ this.currencyFormat(expense) }` }) }</td>
+            <td>{ 
+                  Number(expense.value).toLocaleString('pt-BR',
+                   { 
+                    style: 'currency',
+                    currency: `${ this.currencyFormat(expense) }`,
+                   })
+                }
+            </td>
             <td>{ expense.exchangeRates[expense.currency].name.split('/')[0] }</td>
             <td>
               {Number(expense.exchangeRates[expense.currency].ask)
@@ -44,6 +51,7 @@ class TableData extends React.Component {
                 data-testid="edit-btn"
                 onClick={ () => startEdition(expense.id) }
                 className="edit-btn"
+                disabled={ isEditing }
               >
                 <img
                   src="https://img.icons8.com/glyph-neue/64/000000/edit.png"
@@ -57,6 +65,7 @@ class TableData extends React.Component {
                 data-testid="delete-btn"
                 onClick={ () => removeExpenses(expense.id) }
                 className="delete-btn"
+                disabled={ isEditing }
               >
                 <img
                   src="https://img.icons8.com/ios-filled/50/000000/delete-sign--v2.png"
@@ -75,6 +84,7 @@ class TableData extends React.Component {
 
 const mapStateToProps = ({ wallet }) => ({
   expenses: wallet.expenses,
+  isEditing: wallet.editingExpense,
 });
 
 const mapDispatchToProps = (dispatch) => ({

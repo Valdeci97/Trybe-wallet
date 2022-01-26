@@ -1,9 +1,8 @@
 // Esse reducer será responsável por tratar as informações da pessoa usuária
-import { SAVE_EMAIL, CHANGE_MODE } from '../actions';
+import { SAVE_EMAIL } from '../actions';
 
 const INITIAL_STATE = {
-  email: 'teste@teste.com',
-  mode: false,
+  email: ''
 };
 
 const user = (state = INITIAL_STATE, action) => {
@@ -12,10 +11,6 @@ const user = (state = INITIAL_STATE, action) => {
     return {
       ...state, email: action.payload,
     };
-  case CHANGE_MODE:
-    return {
-      ...state, mode: !state.mode,
-    }
   default:
     return state;
   }

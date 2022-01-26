@@ -37,36 +37,47 @@ class Form extends React.Component {
     const { value, description, method, tag, currency } = this.state;
     return (
       <>
-        <label htmlFor="value" onChange={ this.handleChange }>
+        <label htmlFor="value">
           Valor: &nbsp;
           <input
             type="number"
             id="value"
             value={ value }
             data-testid="value-input"
+            onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="description" onChange={ this.handleChange }>
+        <label htmlFor="description">
           Descrição: &nbsp;
           <input
             type="text"
             id="description"
             value={ description }
             data-testid="description-input"
+            onChange={ this.handleChange }
           />
         </label>
         <CurrencyOptions handleChange={ this.handleChange } value={ currency } />
-        <label htmlFor="method" onChange={ this.handleChange }>
+        <label htmlFor="method">
           Método de pagamento: &nbsp;
-          <select id="method" value={ method } data-testid="method-input">
+          <select
+            id="method" value={ method }
+            data-testid="method-input"
+            onChange={ this.handleChange }
+          >
             <option>Dinheiro</option>
             <option>Cartão de crédito</option>
             <option>Cartão de débito</option>
           </select>
         </label>
-        <label htmlFor="tag" onChange={ this.handleChange }>
+        <label htmlFor="tag">
           Tag: &nbsp;
-          <select id="tag" value={ tag } data-testid="tag-input">
+          <select
+            id="tag"
+            value={ tag }
+            data-testid="tag-input"
+            onChange={ this.handleChange }
+          >
             <option>Alimentação</option>
             <option>Saúde</option>
             <option>Lazer</option>

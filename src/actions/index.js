@@ -8,14 +8,15 @@ export const REMOVE_CHARGE = 'REMOVE_CHARGE';
 export const CHANGING_INFO = 'CHANGING_INFO';
 export const CHANGED_INFO = 'CHANGED_INFO';
 
-export const saveEmailAction = () => ({
+export const saveEmailAction = (payload) => ({
   type: SAVE_EMAIL,
-});
-
-export const changeModeAction = (payload) => ({
-  type: CHANGE_MODE,
   payload,
 });
+
+// export const changeModeAction = (payload) => ({
+//   type: CHANGE_MODE,
+//   payload,
+// });
 
 export const getCurrencyAction = (payload) => ({
   type: GET_CURRENCY_DATA,

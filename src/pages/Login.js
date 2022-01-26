@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { saveEmailAction, changeModeAction } from '../actions';
+import { saveEmailAction } from '../actions';
 
 import './login.css';
 
@@ -47,9 +47,6 @@ class Login extends React.Component {
 
   render() {
     const { email, password, isDisabled } = this.state;
-    const { darkMode, dispatchMode } = this.props;
-    const darkMoon = 'https://img.icons8.com/ios-filled/50/000000/crescent-moon.png';
-    const lightMoon = 'https://img.icons8.com/ios/50/000000/crescent-moon.png';
     return (
       <div>
         <div className="login-container">
@@ -88,26 +85,13 @@ class Login extends React.Component {
             </button>
           </form>
         </div>
-        <div>
-          <img
-            src={ darkMode ? lightMoon : darkMoon }
-            alt={ darkMode ? 'light moon' : 'dark moon' }
-            className={ darkMode ? `mode-container light-mode` : `mode-container dark-mode` }
-            onClick={ () => dispatchMode() }
-          />
-        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  darkMode: state.user.mode,
-});
-
 const mapDispatchToProps = (dispatch) => ({
   dispatchEmail: (payload) => dispatch(saveEmailAction(payload)),
-  dispatchMode: () => dispatch(changeModeAction()),
 });
 
 Login.propTypes = {
@@ -117,7 +101,7 @@ Login.propTypes = {
   dispatchEmail: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);
 
 // Expressão regular (regex) original da variável matcher: ^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})$
 // O que entendi: (^)indica o começo de um texto ([a-zA-Z0-9_]) percorre letras maiúsculas e minúsculas incluindo dígitos e underline/sublinhado (\d) subtitui [0-9], etc.
