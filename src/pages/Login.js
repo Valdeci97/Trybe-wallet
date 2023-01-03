@@ -48,11 +48,11 @@ class Login extends React.Component {
   render() {
     const { email, password, isDisabled } = this.state;
     return (
-      <div>
+      <>
         <div className="login-container">
           <form className="login-form">
-            <label htmlFor="email">
-              Email: &nbsp;&nbsp;
+            <label htmlFor="email" className="label">
+              Email
               <input
                 data-testid="email-input"
                 type="email"
@@ -60,10 +60,11 @@ class Login extends React.Component {
                 placeholder="trybewallet@react-redux.com"
                 onChange={ this.handleChange }
                 value={ email }
+                className="input"
               />
             </label>
-            <label htmlFor="password">
-              Senha: &nbsp;
+            <label htmlFor="password" className="label">
+              Senha
               <input
                 data-testid="password-input"
                 type="password"
@@ -71,13 +72,14 @@ class Login extends React.Component {
                 placeholder="password"
                 value={ password }
                 onChange={ this.handleChange }
+                className="input"
               />
             </label>
             <button
               type="button"
               disabled={ isDisabled }
               onClick={ this.onClickRedirect }
-              className={ isDisabled ? 'login-btn-1' : 'login-btn-2' }
+              className="button"
             >
               <span className={ isDisabled ? 'black' : 'white' }>
                 Entrar
@@ -85,7 +87,7 @@ class Login extends React.Component {
             </button>
           </form>
         </div>
-      </div>
+      </>
     );
   }
 }

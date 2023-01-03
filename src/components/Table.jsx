@@ -6,7 +6,7 @@ import './table.css';
 class Table extends React.Component {
   render() {
     return (
-      <>
+      <table>
         <thead className="table-head">
           <tr className="table-row">
             <th>Descrição</th>
@@ -20,7 +20,7 @@ class Table extends React.Component {
           </tr>
         </thead>
         <TableData />
-      </>
+      </table>
     );
   }
 }

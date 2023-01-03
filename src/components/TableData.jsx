@@ -22,7 +22,7 @@ class TableData extends React.Component {
   render() {
     const { expenses, removeExpenses, startEdition, isEditing } = this.props;
     return (
-      <table className="table-container">
+      <tbody className="table-container">
         {expenses.map((expense) => (
           <tr key={ expense.id } className="table-data-row">
             <td>{ expense.description }</td>
@@ -77,7 +77,7 @@ class TableData extends React.Component {
             </div>
           </tr>
         ))}
-      </table>
+      </tbody>
     );
   }
 }
