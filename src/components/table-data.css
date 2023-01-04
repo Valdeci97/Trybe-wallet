@@ -32,6 +32,10 @@
   opacity: 0.5;
 }
 
+.edit-btn:disabled, .delete-btn:disabled {
+  display: none;
+}
+
 .btn-image {
   height: 1.5rem;
   width: 1.5rem;
