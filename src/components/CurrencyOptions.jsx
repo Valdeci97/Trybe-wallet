@@ -12,9 +12,14 @@ class CurrencyOptions extends React.Component {
   render() {
     const { handleChange, currencies, currency } = this.props;
     return (
-      <label htmlFor="currency" onChange={ handleChange }>
-        Moeda: &nbsp;
-        <select id="currency" data-testid="currency-input" value={ currency }>
+      <label htmlFor="currency" onChange={ handleChange } className="form-label">
+        Moeda &nbsp;
+        <select
+          id="currency"
+          data-testid="currency-input"
+          value={ currency }
+          className="form-select"
+        >
           {currencies.map((moedas) => (moedas[0] === 'USDT'
             ? null : <option key={ moedas[0] }>{ moedas[0] }</option>))}
         </select>

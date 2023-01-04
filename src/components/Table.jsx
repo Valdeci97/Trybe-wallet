@@ -6,17 +6,17 @@ import './table.css';
 class Table extends React.Component {
   render() {
     return (
-      <table>
-        <thead className="table-head">
+      <table className="table">
+        <thead>
           <tr className="table-row">
             <th>Descrição</th>
             <th>Tag</th>
-            <th>Método de pagamento</th>
+            <th>Pagamento</th>
             <th>Valor</th>
             <th>Moeda</th>
-            <th>Câmbio utilizado</th>
+            <th>Taxa de câmbio</th>
             <th>Valor convertido</th>
-            <th>Editar/Excluir</th>
+            <th>Editar - Excluir</th>
           </tr>
         </thead>
         <TableData />

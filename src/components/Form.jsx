@@ -37,46 +37,52 @@ class Form extends React.Component {
     const { value, description, method, tag, currency } = this.state;
     return (
       <>
-        <label htmlFor="value">
-          Valor: &nbsp;
+        <label htmlFor="value" className="form-label">
+          Valor &nbsp;
           <input
             type="number"
             id="value"
             value={ value }
             data-testid="value-input"
             onChange={ this.handleChange }
+            className="form-input"
+            placeholder="15,99"
           />
         </label>
-        <label htmlFor="description">
-          Descrição: &nbsp;
+        <label htmlFor="description" className="form-label">
+          Descrição &nbsp;
           <input
             type="text"
             id="description"
             value={ description }
             data-testid="description-input"
             onChange={ this.handleChange }
+            className="form-input"
+            placeholder="1kg ração pets"
           />
         </label>
         <CurrencyOptions handleChange={ this.handleChange } value={ currency } />
-        <label htmlFor="method">
-          Método de pagamento: &nbsp;
+        <label htmlFor="method" className="form-label">
+          Método de pagamento &nbsp;
           <select
             id="method" value={ method }
             data-testid="method-input"
             onChange={ this.handleChange }
+            className="form-select"
           >
             <option>Dinheiro</option>
-            <option>Cartão de crédito</option>
-            <option>Cartão de débito</option>
+            <option>Crédito</option>
+            <option>Débito</option>
           </select>
         </label>
-        <label htmlFor="tag">
-          Tag: &nbsp;
+        <label htmlFor="tag" className="form-label">
+          Tag &nbsp;
           <select
             id="tag"
             value={ tag }
             data-testid="tag-input"
             onChange={ this.handleChange }
+            className="form-select"
           >
             <option>Alimentação</option>
             <option>Saúde</option>
@@ -85,7 +91,13 @@ class Form extends React.Component {
             <option>Transporte</option>
           </select>
         </label>
-        <button type="button" onClick={ this.addExpenseClick }>Adicionar Despesa</button>
+        <button
+          type="button"
+          onClick={ this.addExpenseClick }
+          className="form-button"
+        >
+          Adicionar Despesa
+        </button>
       </>
     );
   }

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { changedInfoAction } from '../actions/index';
 import CurrencyEdit from './CurrencyEdit';
+import './form.css';
 
 class EditForm extends React.Component {
   constructor(props) {
@@ -38,41 +39,52 @@ class EditForm extends React.Component {
   }
 
   render() {
-    const { value, tag, method, description, currency, exchangeRates } = this.state;
-    console.log(exchangeRates);
+    const { value, tag, method, description, currency } = this.state;
 
     return (
       <>
-        <label htmlFor="value" onChange={ this.handleChange }>
-          Valor: &nbsp;
+        <label htmlFor="value" onChange={ this.handleChange } className="form-label">
+          Valor &nbsp;
           <input
             type="number"
             id="value"
             value={ value }
             data-testid="value-input"
+            className="form-input"
           />
         </label>
-        <label htmlFor="description" onChange={ this.handleChange }>
-          Descrição: &nbsp;
+        <label htmlFor="description" onChange={ this.handleChange } className="form-label">
+          Descrição &nbsp;
           <input
             type="text"
             id="description"
             value={ description }
             data-testid="description-input"
+            className="form-input"
           />
         </label>
         <CurrencyEdit handleChange={ this.handleChange } value={ currency } />
-        <label htmlFor="method" onChange={ this.handleChange }>
-          Método de pagamento: &nbsp;
-          <select id="method" value={ method } data-testid="method-input">
+        <label htmlFor="method" onChange={ this.handleChange } className="form-label">
+          Método de pagamento &nbsp;
+          <select
+            id="method"
+            value={ method }
+            data-testid="method-input"
+            className="form-select"
+          >
             <option>Dinheiro</option>
-            <option>Cartão de crédito</option>
-            <option>Cartão de débito</option>
+            <option>Crédito</option>
+            <option>Débito</option>
           </select>
         </label>
-        <label htmlFor="tag" onChange={ this.handleChange }>
-          Tag: &nbsp;
-          <select id="tag" value={ tag } data-testid="tag-input">
+        <label htmlFor="tag" onChange={ this.handleChange } className="form-label">
+          Tag &nbsp;
+          <select
+            id="tag"
+            value={ tag }
+            data-testid="tag-input"
+            className="form-select"
+          >
             <option>Alimentação</option>
             <option>Saúde</option>
             <option>Lazer</option>
@@ -80,7 +92,13 @@ class EditForm extends React.Component {
             <option>Transporte</option>
           </select>
         </label>
-        <button type="button" onClick={ this.editedInfo }>finalizar edição</button>
+        <button
+          type="button"
+          onClick={ this.editedInfo }
+          className="form-button"
+        >
+          Finalizar edição
+        </button>
       </>
     );
   }

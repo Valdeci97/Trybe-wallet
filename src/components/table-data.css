@@ -1,31 +1,120 @@
 .table-container {
-  box-sizing: border-box;
   display: inline-table;
   table-layout: fixed;
   width: 100%;
 }
 
+.table-data-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .table-data-row td {
-  box-sizing: border-box;
-  display: inline-table;
-  inline-size: 8px;
-  margin-left: 0.5%;
-  width: 11%;
-  transform: translateY(-5px);
+  font-size: 1.25rem;
   text-align: center;
+  width: calc(100vw/8);
 }
-
 
 .button-container {
-  display: inline-flex;
+  display: flex;
+  justify-content: space-around;
+  width: calc(100vw/8);
 }
 
-.edit-btn {
-  margin-right: 5px;
-  margin-left: 50px;
+.edit-btn, .delete-btn {
+  background-color: transparent;
+  border: none;
 }
 
-.delete-btn {
-  margin-left: 10px;
+.edit-btn:hover, .delete-btn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.btn-image {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+@media screen and (max-width: 360px) {
+  .table-data-row td {
+    font-size: 0.5rem;
+  }
+
+  .edit-btn, .delete-btn {
+    width: 40%;
+  }
+
+  .btn-image {
+    height: 0.6rem;
+    width: 0.6rem;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 440px) {
+  .table-data-row td {
+    font-size: 0.6rem;
+  }
+
+  .edit-btn, .delete-btn {
+    width: 40%;
+  }
+
+  .btn-image {
+    height: 0.8rem;
+    width: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 441px) and (max-width: 540px) {
+  .table-data-row td {
+    font-size: 0.6rem;
+  }
+
+  .edit-btn, .delete-btn {
+    width: 20%;
+  }
+
+  .btn-image {
+    height: 0.9rem;
+    width: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 541px) and (max-width: 640px) {
+  .table-data-row td {
+    font-size: 0.7rem;
+  }
+
+  .edit-btn, .delete-btn {
+    width: 25%;
+  }
+
+  .btn-image {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 800px) {
+  .table-data-row td {
+    font-size: 0.8rem;
+  }
+
+  .btn-image {
+    height: 1.1rem;
+    width: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1000px) {
+  .table-data-row td {
+    font-size: 1.1rem;
+  }
+
+  .btn-image {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
 }

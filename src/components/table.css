@@ -1,11 +1,52 @@
-.table-row {
+.table {
   display: flex;
-  max-width: 95%;
-  box-sizing: border-box;
-  /* text-align: center; */
+  flex-direction: column;
+  width: 100%;
+}
+
+.table-row {
+  align-items: center;
+  display: flex;
+  font-size: 1.25rem;
+  justify-content: space-evenly;
 }
 
 .table-row th {
-  box-sizing: border-box;
-  margin: 3% 7%;
+  width: calc(100vw/8);
+}
+
+@media screen and (max-width: 360px) {
+  .table-row {
+    font-size: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 440px) {
+  .table-row {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 441px) and (max-width: 540px) {
+  .table-row {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 541px) and (max-width: 640px) {
+  .table-row {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 800px) {
+  .table-row {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1000px) {
+  .table-row {
+    font-size: 1.2rem;
+  }
 }

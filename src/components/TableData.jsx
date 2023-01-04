@@ -54,10 +54,9 @@ class TableData extends React.Component {
                 disabled={ isEditing }
               >
                 <img
-                  src="https://img.icons8.com/glyph-neue/64/000000/edit.png"
+                  src="https://img.icons8.com/ios/100/null/pencil--v1.png"
                   alt="lápis"
-                  width="20px"
-                  height="20px"
+                  className="btn-image"
                 />
               </button>
               <button
@@ -70,8 +69,7 @@ class TableData extends React.Component {
                 <img
                   src="https://img.icons8.com/ios-filled/50/000000/delete-sign--v2.png"
                   alt="letra X"
-                  width="20px"
-                  height="20px"
+                  className="btn-image"
                 />
               </button>
             </div>

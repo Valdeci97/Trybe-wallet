@@ -1,14 +1,214 @@
 .form-container {
+  align-items: center;
   display: flex;
+  height: 10vh;
   justify-content: space-evenly;
-  margin: 10px;
 }
 
-.form-container button{
+.form-label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.form-input, .form-select {
+  font-size: 1rem;
+  height: 50%;
+  text-align: center;
+}
+
+.form-input {
+  width: 8rem;
+}
+
+.form-input::placeholder {
+  font-size: 1rem;
+}
+
+.form-select {
+  background-color: #fff;
+  border-radius: 0.25rem;
+}
+
+.form-select:hover {
+  cursor: pointer;
+}
+
+.form-button{
   background-color: #29271f;
-  border: #fff solid 2px;
-  border-radius: 15px;
+  border: none;
+  border-radius: 0.5rem;
   color: #fff;
-  height: 25px;
-  transform: translateY(-2px);
+  font-size: 1rem;
+  height: 2rem;
+}
+
+.form-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 360px) {
+  .form-label {
+    font-size: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-input {
+    font-size: 0.5rem;
+    width: 2.5rem;
+  }
+
+  .form-input::placeholder {
+    font-size: 0.5rem;
+  }
+
+  .form-select {
+    font-size: 0.5rem;
+    width: 2.5rem;
+  }
+
+  .form-button {
+    font-size: 0.4rem;
+    height: 1.3rem;
+    width: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 440px) {
+  .form-label {
+    font-size: 0.6rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-input {
+    font-size: 0.6rem;
+    width: 2.75rem;
+  }
+
+  .form-input::placeholder {
+    font-size: 0.6rem;
+  }
+
+  .form-select {
+    font-size: 0.6rem;
+    width: 3rem;
+  }
+
+  .form-button {
+    font-size: 0.5rem;
+    height: 1.3rem;
+    width: 3rem;
+  }
+}
+
+@media screen and (min-width: 441px) and (max-width: 540px) {
+  .form-label {
+    font-size: 0.7rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-input {
+    font-size: 0.7rem;
+    width: 3rem;
+  }
+
+  .form-input::placeholder {
+    font-size: 0.7rem;
+  }
+
+  .form-select {
+    font-size: 0.7rem;
+    width: 3.25rem;
+  }
+
+  .form-button {
+    font-size: 0.6rem;
+    height: 1.4rem;
+    width: 3.25rem;
+  }
+}
+
+@media screen and (min-width: 541px) and (max-width: 640px) {
+  .form-label {
+    font-size: 0.8rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-input {
+    font-size: 0.8rem;
+    width: 3.25rem;
+  }
+
+  .form-input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .form-select {
+    font-size: 0.8rem;
+    width: 3.5rem;
+  }
+
+  .form-button {
+    font-size: 0.7rem;
+    height: 1.5rem;
+    width: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 800px) {
+  .form-label {
+    font-size: 0.8rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-input {
+    font-size: 0.8rem;
+    width: 3.25rem;
+  }
+
+  .form-input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .form-select {
+    font-size: 0.8rem;
+    width: 3.5rem;
+  }
+
+  .form-button {
+    font-size: 0.7rem;
+    height: 1.5rem;
+    width: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1000px) {
+  .form-label {
+    font-size: 0.8rem;
+  }
+
+  .form-input {
+    font-size: 0.8rem;
+    width: 3.5rem;
+  }
+
+  .form-input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .form-select {
+    font-size: 0.8rem;
+    width: 3.75rem;
+  }
+
+  .form-button {
+    font-size: 0.8rem;
+    height: 2rem;
+    width: 4rem;
+  }
 }
