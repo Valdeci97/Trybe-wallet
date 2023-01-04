@@ -12,6 +12,15 @@ class Wallet extends React.Component {
     super(props);
 
     this.chargeAmount = this.chargeAmount.bind(this);
+    this.logoff = this.logoff.bind(this);
+  }
+
+  componentDidMount() {
+    const { history } = this.props;
+    const isAuthenticated = localStorage.getItem('email');
+    if (!isAuthenticated) {
+      return history.push('/');
+    }
   }
 
   chargeAmount() {
@@ -22,6 +31,12 @@ class Wallet extends React.Component {
       return acc + convertion;
     }, 0);
     return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  logoff() {
+    const { history } = this.props;
+    localStorage.removeItem('email');
+    history.push('/');
   }
 
   render() {
@@ -38,6 +53,13 @@ class Wallet extends React.Component {
             {' '}
             { this.chargeAmount() }
           </span>
+          <button
+            type="button"
+            className="logoff-btn"
+            onClick={ this.logoff }
+          >
+            Sair
+          </button>
         </header>
         <Form />
         <Table />
@@ -47,7 +69,7 @@ class Wallet extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  email: state.user.email,
+  email: state.user.email || localStorage.getItem('email'),
   expenses: state.wallet.expenses,
 });
 
@@ -58,6 +80,9 @@ const mapDispatchToProps = (dispatch) => ({
 Wallet.propTypes = {
   email: PropTypes.string.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);

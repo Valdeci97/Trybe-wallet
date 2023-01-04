@@ -24,6 +24,7 @@ class Login extends React.Component {
     const { history, dispatchEmail } = this.props;
     const { email } = this.state;
     dispatchEmail(email);
+    localStorage.setItem('email', email);
     history.push('/carteira');
   }
 

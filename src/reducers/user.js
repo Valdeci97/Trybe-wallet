@@ -2,7 +2,7 @@
 import { SAVE_EMAIL } from '../actions';
 
 const INITIAL_STATE = {
-  email: 'teste@teste.com'
+  email: ''
 };
 
 const user = (state = INITIAL_STATE, action) => {
