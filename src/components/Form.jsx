@@ -108,6 +108,9 @@ class Form extends React.Component {
     this.setState({
       exchangeRates,
     });
+    if (!this.state.value || !this.state.description) {
+      return window.alert('Preencha todos os campos da despesa antes de adicioná-la.');
+    }
     dispatchExpenses(this.state);
     this.setState({
       value: '',
