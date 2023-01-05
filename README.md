@@ -2,7 +2,7 @@
 
 ## Este projeto simula uma carteira de controle de despesas para desktop, com cotações de algumas moedas internacionais para conversão direta com o real (R$).
 
-Projeto individual feito na Trybe com o intuito de aprender gerenciamento de estado entre componentes de classe React com o uso de Redux.
+Projeto individual feito na Trybe com o intuito de aprender gerenciamento de estado entre componentes de classe React com o uso de Redux. link [app](https://trybe-wallet-valdeci97.vercel.app/)
 
 ## <div align="center">Tecnologias</div>
 
