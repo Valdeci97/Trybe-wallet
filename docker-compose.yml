@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: trybe_wallet
+    stdin_open: true
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/node/app
