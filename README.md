@@ -15,9 +15,7 @@ Projeto individual feito na Trybe com o intuito de aprender gerenciamento de est
 
 ## <div align="center">Como usar</div>
 
-Você vai precisar ter instalado [Git](https://git-scm.com/downloads), [Docker](https://docs.docker.com/engine/install/), [docker-compose plugin](https://docs.docker.com/compose/install/)\*\*
-
-\*\*Apenas linux. Windows e Mac já instalam junto ao docker desktop.
+Você vai precisar ter instalado [Git](https://git-scm.com/downloads), [Docker](https://docs.docker.com/engine/install/).
 
 ##
 
@@ -36,13 +34,7 @@ cd Trybe-wallet
 Inicie o container docker
 
 ```
-npm run compose:up
-```
-
-Caso o comando falhe, tente
-
-```
-npm run compose:up:alt
+docker compose up -d
 ```
 
 Se nada de errado aconteceu, a aplicação estará rodando no localhost na porta 3000.
@@ -52,9 +44,5 @@ Acesse http://localhost:3000/ para ver a aplicação.
 Parando o container
 
 ```
-npm run compose:down
-
-ou
-
-npm run compose:down:alt
+docker compose down -v
 ```

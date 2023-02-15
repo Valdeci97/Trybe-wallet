@@ -26,11 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx",
-    "compose:up": "docker-compose up -d",
-    "compose:up:alt": "docker compose up -d",
-    "compose:down": "docker-compose down",
-    "compose:down:alt": "docker compose down"
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx"
   },
   "eslintConfig": {
     "extends": "react-app"
